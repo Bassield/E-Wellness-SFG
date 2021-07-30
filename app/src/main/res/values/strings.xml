@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Health Care App</string>
+    <string name="app_name">EWellness App</string>
     <string name="main_activity_description">Simply chat with your mentors.</string>
 
     <string name="login">Log in</string>
@@ -101,6 +101,8 @@
     <string name="description">Description</string>
     <string name="_9_00_9_30">9:00 – 9:30</string>
     <string name="available">Available</string>
+    <string name="next">Next</string>
+    <string name="previous">previous</string>
     <!--<string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
         -->
 </resources>

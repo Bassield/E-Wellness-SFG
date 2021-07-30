@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.ensias.healthcareapp">
+    package="EWellnessSFG">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -18,29 +18,29 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="lollipop"
         android:allowBackup="true">
-        <activity android:name=".MyCalendarDoctorActivity" />
-        <activity android:name=".TestActivity" />
-        <activity android:name=".AppointmentActivity" />
-        <activity android:name=".RecordInfo" />
-        <activity android:name=".PatientInfoActivity" />
-        <activity android:name=".DossierMedical" />
-        <activity android:name=".ChatActivity" />
-        <activity android:name=".PatientRequestPage" />
-        <activity android:name=".DoctorHomeActivity" />
-        <activity android:name=".EditProfileDoctorActivity" />
-        <activity android:name=".ConfirmedAppointmentActivity" />
-        <activity android:name=".PatientAppointmentsActivity" />
-        <activity android:name=".ProfilePatientActivity" />
-        <activity android:name=".MyDoctorsActivity" />
-        <activity android:name=".ProfileDoctorActivity" />
-        <activity android:name=".EditProfilePatientActivity" />
-        <activity android:name=".DoctorAppointmentActivity" />
-        <activity android:name=".RecordActivity" />
-        <activity android:name=".MyPatientsActivity" />
-        <activity android:name=".SearchPatActivity" />
-        <activity android:name=".FirstSigningActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.sfg.EWellnessSFG.MyCalendarDoctorActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.TestActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.AppointmentActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.RecordInfo" />
+        <activity android:name="com.sfg.EWellnessSFG.PatientInfoActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.DossierMedical" />
+        <activity android:name="com.sfg.EWellnessSFG.ChatActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.PatientRequestPage" />
+        <activity android:name="com.sfg.EWellnessSFG.DoctorHomeActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.EditProfileDoctorActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.ConfirmedAppointmentActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.PatientAppointmentsActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.ProfilePatientActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.MyDoctorsActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.ProfileDoctorActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.EditProfilePatientActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.DoctorAppointmentActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.RecordActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.MyPatientsActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.SearchPatActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.FirstSigningActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.HomeActivity" />
+        <activity android:name="com.sfg.EWellnessSFG.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:252474925743:android:f9f62581970d6d7777aa5a",
         "android_client_info": {
-          "package_name": "com.ensias.healthcareapp"
+          "package_name": "com.sfg.healthcareapp"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "252474925743-t4o26o31vpoe742fmnmpq19lm9b13cob.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.ensias.healthcareapp",
+            "package_name": "com.sfg.healthcareapp",
             "certificate_hash": "d7a4cdcda951e6f94dddbfd02a418edee5a8728b"
           }
         },
