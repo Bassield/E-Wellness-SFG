@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1026437590344",
+    "project_id": "e-wellness-sfg",
+    "storage_bucket": "e-wellness-sfg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026437590344:android:d02ff9ce4bb89238a5977d",
+        "android_client_info": {
+          "package_name": "com.ensias.healthcareapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026437590344-3rfboj595m2nkau0tl9u68ki4abplj5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfu_xahfDGnUGFoEmw7eXHBAf9yiM8YRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1026437590344-3rfboj595m2nkau0tl9u68ki4abplj5f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
