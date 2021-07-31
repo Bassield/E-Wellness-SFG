@@ -25,6 +25,8 @@ import com.squareup.picasso.Picasso;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Objects;
+
 import EWellnessSFG.R;
 
 public class PatientAppointmentsAdapter extends FirestoreRecyclerAdapter<AppointmentInformation, PatientAppointmentsAdapter.PatientAppointmentsHolder> {
@@ -32,7 +34,7 @@ public class PatientAppointmentsAdapter extends FirestoreRecyclerAdapter<Appoint
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     DocumentReference docRef;
     DocumentSnapshot documentSnapshot;
-    final String doctorID = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+    final String doctorID = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
 
     public PatientAppointmentsAdapter(@NonNull FirestoreRecyclerOptions<AppointmentInformation> options) {
         super(options);
@@ -46,7 +48,7 @@ public class PatientAppointmentsAdapter extends FirestoreRecyclerAdapter<Appoint
         patientAppointmentsHolder.appointmentType.setText(appointmentInformation.getAppointmentType());
         patientAppointmentsHolder.type.setText(appointmentInformation.getType());
         String doctorEmail = appointmentInformation.getDoctorId();
-        Log.d("docotr email", doctorEmail);
+        Log.d("doctor email", doctorEmail);
         docRef = db.collection("Doctor").document("" + doctorEmail + "");
         /* Get the doctor's phone number */
         docRef.get().addOnCompleteListener(task -> {
@@ -107,7 +109,7 @@ public class PatientAppointmentsAdapter extends FirestoreRecyclerAdapter<Appoint
             super(itemView);
             dateAppointment = itemView.findViewById(R.id.appointment_date);
             patientName = itemView.findViewById(R.id.patient_name);
-            appointmentType = itemView.findViewById(R.id.appointement_type);
+            appointmentType = itemView.findViewById(R.id.appointment_type);
             type = itemView.findViewById(R.id.type);
             phone = itemView.findViewById(R.id.patient_phone);
             image = itemView.findViewById(R.id.patient_image);

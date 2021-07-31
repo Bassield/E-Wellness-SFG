@@ -22,8 +22,8 @@ import EWellnessSFG.R;
 
 public class PatientRequestPage extends AppCompatActivity {
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference addRef = db.collection("Request");
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final CollectionReference addRef = db.collection("Request");
 
     private PatRequestAdapter adapter;
 

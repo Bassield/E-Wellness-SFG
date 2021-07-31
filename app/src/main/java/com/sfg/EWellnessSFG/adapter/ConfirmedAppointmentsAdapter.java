@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.sfg.EWellnessSFG.model.AppointmentInformation;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -47,11 +46,8 @@ public class ConfirmedAppointmentsAdapter extends FirestoreRecyclerAdapter<Appoi
 
                 // profileImage.setImageURI(uri);
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-            }
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
         });
 
     }
@@ -72,7 +68,7 @@ public class ConfirmedAppointmentsAdapter extends FirestoreRecyclerAdapter<Appoi
             super(itemView);
             dateAppointment = itemView.findViewById(R.id.appointment_date);
             patientName = itemView.findViewById(R.id.patient_name);
-            appointmentType = itemView.findViewById(R.id.appointement_type);
+            appointmentType = itemView.findViewById(R.id.appointment_type);
             patientImage = itemView.findViewById(R.id.patient_image);
         }
     }

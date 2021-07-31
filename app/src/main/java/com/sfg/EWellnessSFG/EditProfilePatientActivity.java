@@ -54,7 +54,7 @@ public class EditProfilePatientActivity extends AppCompatActivity {
     private DatabaseReference pDatabaseRef;
     private FirebaseFirestore doctorRef;
     FirebaseStorage storage = FirebaseStorage.getInstance();
-    private StorageReference storageRef = storage.getReference();
+    private final StorageReference storageRef = storage.getReference();
     private DatabaseReference currentUserImg;
 
 
@@ -92,18 +92,15 @@ public class EditProfilePatientActivity extends AppCompatActivity {
                    */
         String userPhotoPath = currentDoctorUID + ".jpg";
         StorageReference pathReference = storageRef.child("DoctorProfile/" + userPhotoPath); //Doctor photo in database
-        pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.with(EditProfilePatientActivity.this)
-                        .load(uri)
-                        .placeholder(R.drawable.doctor)
-                        .fit()
-                        .centerCrop()
-                        .into(profileImage);//Store here the imageView
+        pathReference.getDownloadUrl().addOnSuccessListener(uri -> {
+            Picasso.with(EditProfilePatientActivity.this)
+                    .load(uri)
+                    .placeholder(R.drawable.doctor)
+                    .fit()
+                    .centerCrop()
+                    .into(profileImage);//Store here the imageView
 
-                // profileImage.setImageURI(uri);
-            }
+            // profileImage.setImageURI(uri);
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
@@ -113,24 +110,15 @@ public class EditProfilePatientActivity extends AppCompatActivity {
         });
 
 
-        selectImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openFileChooser();
+        selectImage.setOnClickListener(view -> openFileChooser());
 
-            }
-        });
-
-        updateProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String updateAddress = doctorAddress.getText().toString();
-                String updateName = doctorName.getText().toString();
-                //String updateEmail = doctorEmail.getText().toString();
-                String updatePhone = doctorPhone.getText().toString();
-                uploadProfileImage();
-                updateDoctorInfo(updateName, updateAddress, updatePhone);
-            }
+        updateProfile.setOnClickListener(view -> {
+            String updateAddress = doctorAddress.getText().toString();
+            String updateName = doctorName.getText().toString();
+            //String updateEmail = doctorEmail.getText().toString();
+            String updatePhone = doctorPhone.getText().toString();
+            uploadProfileImage();
+            updateDoctorInfo(updateName, updateAddress, updatePhone);
         });
     }
 
@@ -142,18 +130,10 @@ public class EditProfilePatientActivity extends AppCompatActivity {
         //documentReference.update("email", email);
         documentReference.update("name", name);
         documentReference.update("tel", phone)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(EditProfilePatientActivity.this, "Info Updated", Toast.LENGTH_LONG).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(EditProfilePatientActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                        Log.d("Androidview", Objects.requireNonNull(e.getMessage()));
-                    }
+                .addOnSuccessListener(aVoid -> Toast.makeText(EditProfilePatientActivity.this, "Info Updated", Toast.LENGTH_LONG).show())
+                .addOnFailureListener(e -> {
+                    Toast.makeText(EditProfilePatientActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    Log.d("Androidview", Objects.requireNonNull(e.getMessage()));
                 });
     }
 
@@ -185,72 +165,63 @@ public class EditProfilePatientActivity extends AppCompatActivity {
     }
 
     /* Used to upload the doctor image in the DataBase */
+    @SuppressLint("LongLogTag")
     private void uploadProfileImage() {
         /* check if the image is not null */
         if (uriImage != null) {
             StorageReference storageReference = pStorageRef.child(currentDoctorUID
                     + "." + getFileExtension(uriImage));
-            storageReference.putFile(uriImage).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()) {
-                        throw Objects.requireNonNull(task.getException());
-                    }
-                    return pStorageRef.getDownloadUrl();
+            /*
+            private void getDownloadUrl(StorageReference fileReference) {
+                fileReference.getDownloadUrl()
+                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                //Log.d(TAG, "onSuccess" + uri);
+                            }
+                        });
+            }
+             */
+            storageReference.putFile(uriImage).continueWithTask(task -> {
+                if (!task.isSuccessful()) {
+                    throw Objects.requireNonNull(task.getException());
                 }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @SuppressLint("LongLogTag")
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()) {
-                        Uri downloadUri = task.getResult();
-                        Log.e(TAG, "then: " + downloadUri.toString());
+                return pStorageRef.getDownloadUrl();
+            }).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    Uri downloadUri = task.getResult();
+                    Log.e(TAG, "then: " + downloadUri.toString());
 
-                        UploadImage upload = new UploadImage(currentDoctorUID,
-                                downloadUri.toString());
-                        pDatabaseRef.push().setValue(upload);
-                    }
-
-                    /*
-                    if (uriImage != null) {
-                        StorageReference fileReference = pStorageRef.child(System.currentTimeMillis()
-                                + "." + getFileExtension(uriImage));
-                        fileReference.putFile(uriImage)
-                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                    @Override
-                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                        Toast.makeText(EditProfileDoctorActivity.this, "Update Successful", Toast.LENGTH_SHORT)
-                                                .show();
-                                        //Upload the image to the database
-                                        UploadImage uploadImage = new UploadImage(currentDoctorUID, taskSnapshot.getDownloadUrl().toString());
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(EditProfileDoctorActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT)
-                                                .show();
-                                    }
-                                });
-                    }*/
-                    else {
-                        Toast.makeText(EditProfilePatientActivity.this, "upload failed: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+                    UploadImage upload = new UploadImage(currentDoctorUID,
+                            downloadUri.toString());
+                    pDatabaseRef.push().setValue(upload);
                 }
 
                 /*
-                private void getDownloadUrl(StorageReference fileReference) {
-                    fileReference.getDownloadUrl()
-                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                if (uriImage != null) {
+                    StorageReference fileReference = pStorageRef.child(System.currentTimeMillis()
+                            + "." + getFileExtension(uriImage));
+                    fileReference.putFile(uriImage)
+                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override
-                                public void onSuccess(Uri uri) {
-                                    //Log.d(TAG, "onSuccess" + uri);
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    Toast.makeText(EditProfileDoctorActivity.this, "Update Successful", Toast.LENGTH_SHORT)
+                                            .show();
+                                    //Upload the image to the database
+                                    UploadImage uploadImage = new UploadImage(currentDoctorUID, taskSnapshot.getDownloadUrl().toString());
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(EditProfileDoctorActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT)
+                                            .show();
                                 }
                             });
+                }*/
+                else {
+                    Toast.makeText(EditProfilePatientActivity.this, "upload failed: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
-                 */
-
-
             });
         }
     }

@@ -6,7 +6,6 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Toast;
@@ -52,40 +51,28 @@ public class DoctorHomeActivity extends AppCompatActivity implements DatePickerD
         Common.CurrentDoctor = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
         Common.CurrentUserType = "doctor";
         listPatients = findViewById(R.id.listPatients);
-        BtnRequest = findViewById(R.id.btnRequst);
+        BtnRequest = findViewById(R.id.btnRequest);
         SignOutBtn2 = findViewById(R.id.signOutBtn);
-        appointmentBtn = findViewById(R.id.appointement);
-        SignOutBtn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            }
+        appointmentBtn = findViewById(R.id.appointment);
+        SignOutBtn2.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         });
-        BtnRequest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent k = new Intent(DoctorHomeActivity.this, ConfirmedAppointmentActivity.class);
-                startActivity(k);
-            }
+        BtnRequest.setOnClickListener(v -> {
+            Intent k = new Intent(DoctorHomeActivity.this, ConfirmedAppointmentActivity.class);
+            startActivity(k);
         });
-        listPatients.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent k = new Intent(DoctorHomeActivity.this, MyPatientsActivity.class);
-                startActivity(k);
-            }
+        listPatients.setOnClickListener(v -> {
+            Intent k = new Intent(DoctorHomeActivity.this, MyPatientsActivity.class);
+            startActivity(k);
         });
-        appointmentBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // doc = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
-                //showDatePickerDialog(v.getContext());
-                Intent k = new Intent(DoctorHomeActivity.this, DoctorAppointmentActivity.class);
-                startActivity(k);
-            }
+        appointmentBtn.setOnClickListener(v -> {
+            // doc = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
+            //showDatePickerDialog(v.getContext());
+            Intent k = new Intent(DoctorHomeActivity.this, DoctorAppointmentActivity.class);
+            startActivity(k);
         });
 
     }

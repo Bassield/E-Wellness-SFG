@@ -17,6 +17,8 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import java.util.Objects;
+
 import EWellnessSFG.R;
 
 public class ConsultationFragmentPage extends Fragment {
@@ -45,7 +47,7 @@ public class ConsultationFragmentPage extends Fragment {
 
     private void setUpRecyclerView() {
 
-        String email_id = getActivity().getIntent().getExtras().getString("patient_email");
+        String email_id = requireActivity().getIntent().getExtras().getString("patient_email");
         CollectionReference recordRef = db.collection("Patient").document(email_id).collection("MyMedicalFolder");
         Query query = recordRef.whereEqualTo("type", "Consultation");
 

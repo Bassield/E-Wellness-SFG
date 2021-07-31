@@ -47,29 +47,23 @@ public class PatientInfoActivity extends AppCompatActivity {
 
         assert patient_email != null;
         FirebaseFirestore.getInstance().collection("Patient").document(patient_email).collection("moreInfo")
-                .document(patient_email).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                weightBtn.setText(new StringBuilder().append("").append(documentSnapshot.getString("weight")).toString());
-                heightBtn.setText(new StringBuilder().append("").append(documentSnapshot.getString("height")).toString());
-                if(documentSnapshot.getString("bloodType") != null)
-                specialistList.setSelection(convertBloodToInt(Objects.requireNonNull(documentSnapshot.getString("bloodType"))));
-            }
-        });
+                .document(patient_email).get().addOnSuccessListener(documentSnapshot -> {
+                    weightBtn.setText(new StringBuilder().append("").append(documentSnapshot.getString("weight")).toString());
+                    heightBtn.setText(new StringBuilder().append("").append(documentSnapshot.getString("height")).toString());
+                    if(documentSnapshot.getString("bloodType") != null)
+                    specialistList.setSelection(convertBloodToInt(Objects.requireNonNull(documentSnapshot.getString("bloodType"))));
+                });
 
-        updateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HashMap<String,Object> map = new HashMap<>();
-                map.put("height",""+heightBtn.getText());
-                map.put("weight",""+weightBtn.getText());
-                map.put("bloodType",""+specialistList.getSelectedItem().toString());
-                Log.e("tag", "onClick: "+specialistList.getTag() );
-                FirebaseFirestore.getInstance().collection("Patient").document(patient_email).collection("moreInfo")
-                        .document(patient_email).set(map);
-                Toast.makeText(PatientInfoActivity.this,"Update Success!",Toast.LENGTH_SHORT).show();
+        updateBtn.setOnClickListener(v -> {
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("height",""+heightBtn.getText());
+            map.put("weight",""+weightBtn.getText());
+            map.put("bloodType",""+specialistList.getSelectedItem().toString());
+            Log.e("tag", "onClick: "+specialistList.getTag() );
+            FirebaseFirestore.getInstance().collection("Patient").document(patient_email).collection("moreInfo")
+                    .document(patient_email).set(map);
+            Toast.makeText(PatientInfoActivity.this,"Update Success!",Toast.LENGTH_SHORT).show();
 
-            }
         });
        if(Common.CurrentUserType.equals("patient")){
             updateBtn.setVisibility(View.GONE);

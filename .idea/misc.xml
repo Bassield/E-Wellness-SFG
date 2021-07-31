@@ -18,11 +18,48 @@
         <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/ic_assignment_ind_black_24dp.xml" value="0.22135416666666666" />
         <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/ic_attach_money_black_24dp.xml" value="0.22135416666666666" />
         <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/ic_calendar.xml" value="0.22135416666666666" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/ic_chat_message_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/rating_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/rectangle_round.xml" value="0.22135416666666666" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/rounded_dialog.xml" value="0.22135416666666666" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/rounded_edittext.xml" value="0.22135416666666666" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/rounded_message.xml" value="0.22135416666666666" />
         <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/rounded_message2.xml" value="0.22135416666666666" />
         <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/drawable/rounded_relativelayout.xml" value="0.22135416666666666" />
         <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/font/courgette.xml" value="0.396875" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout-v21/activity_doctor_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_appointement.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_doctor_appointement.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_doctor_home.xml" value="0.29891304347826086" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_dossier_medical.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_edit_profile_patient.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_first_signin.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_patient_appointments.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_patient_info.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_patient_request_page.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_profile_doctor.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_profile_info.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_record.xml" value="0.20520833333333333" />
         <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/activity_test.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/confirmed_appointements_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/consultation_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/doctor_appointement_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/doctor_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/fragment_booking_step3.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/fragment_booking_step_one.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/fragment_booking_step_two.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/fragment_consultation.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/fragment_consultation_page.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/fragment_hospitalisation.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/hospitalisation_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/layout_time_slot.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/message_chat_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/my_doctor_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/my_patient_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/pat_request_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/layout/patient_appointments_item.xml" value="0.20520833333333333" />
         <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/menu/navigation_bar.xml" value="0.20520833333333333" />
+        <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/menu/top_app_bar.xml" value="0.20520833333333333" />
         <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22135416666666666" />
         <entry key="..\:/Development/Health_Care_App-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22135416666666666" />
       </map>

@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_dark_background"
-    tools:context=".DoctorAppointmentActivity">
+    tools:context="com.sfg.EWellnessSFG.DoctorAppointmentActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/DoctorAppointement"
+        android:id="@+id/DoctorAppointment"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

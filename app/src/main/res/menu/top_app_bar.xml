@@ -4,16 +4,16 @@
     <item
         android:id="@+id/back"
         android:icon="@drawable/ic_arrow_back_black_24dp"
-        android:title="edit"
-        android:contentDescription="back"
+        android:title="@string/edit"
+        android:contentDescription="@string/back"
         android:layout_gravity="left"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/edit"
         android:icon="@drawable/ic_edit_black_24dp"
-        android:title="edit"
-        android:contentDescription="edit"
+        android:title="@string/edit"
+        android:contentDescription="@string/edit"
         app:showAsAction="ifRoom" />
 
 </menu>

@@ -44,33 +44,27 @@ public class DoctorAdapter extends FirestoreRecyclerAdapter<Doctor, DoctorAdapte
         final TextView t = doctorHolder.title ;
         doctorHolder.title.setText(doctor.getName());
         doctorHolder.specialist.setText(new StringBuilder().append("DoctorAdapter : ").append(doctor.getSpecialist()).toString());
-        final String idPat = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail().toString();
+        final String idPat = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
         final String idDoc = doctor.getEmail();
         // doctorHolder.image.setImageURI(Uri.parse("drawable-v24/ic_launcher_foreground.xml"));
-        doctorHolder.addDoc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Map<String, Object> note = new HashMap<>();
-                note.put("id_patient", idPat);
-                note.put("id_doctor", idDoc);
-                addRequest.document().set(note)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Snackbar.make(t, "Request sent", Snackbar.LENGTH_SHORT).show();
-                            }
-                        });
-                doctorHolder.addDoc.setVisibility(View.INVISIBLE);
-            }
+        doctorHolder.addDoc.setOnClickListener(v -> {
+            Map<String, Object> note = new HashMap<>();
+            note.put("id_patient", idPat);
+            note.put("id_doctor", idDoc);
+            addRequest.document().set(note)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Snackbar.make(t, "Request sent", Snackbar.LENGTH_SHORT).show();
+                        }
+                    });
+            doctorHolder.addDoc.setVisibility(View.INVISIBLE);
         });
-        doctorHolder.appointmentBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                doc= doctor.getEmail();
-                Common.CurrentDoctor = doctor.getEmail();
-                openPage(v.getContext());
+        doctorHolder.appointmentBtn.setOnClickListener(v -> {
+            doc= doctor.getEmail();
+            Common.CurrentDoctor = doctor.getEmail();
+            openPage(v.getContext());
 
-            }
         });
 
     }
@@ -98,7 +92,7 @@ public class DoctorAdapter extends FirestoreRecyclerAdapter<Doctor, DoctorAdapte
             title= itemView.findViewById(R.id.doctor_view_title);
             specialist =itemView.findViewById(R.id.text_view_description);
             image=itemView.findViewById(R.id.doctor_item_image);
-            appointmentBtn =itemView.findViewById(R.id.appointemenBtn);
+            appointmentBtn =itemView.findViewById(R.id.appointmentBtn);
         }
     }
     private void openPage(Context wf){

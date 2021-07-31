@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".RecordActivity">
+    tools:context="com.sfg.EWellnessSFG.RecordActivity">
 
     <EditText
         android:id="@+id/record_disease"
@@ -14,7 +14,7 @@
         android:inputType="text"
         android:textColor="#22BE87"
         android:textColorHint="#22BE87"
-        android:hint="Maladie" />
+        android:hint="@string/disease" />
 
     <EditText
         android:id="@+id/record_description"
@@ -23,7 +23,7 @@
         android:inputType="textMultiLine"
         android:textColor="#22BE87"
         android:textColorHint="#22BE87"
-        android:hint="Description"
+        android:hint="@string/description"
         />
 
     <EditText
@@ -33,7 +33,7 @@
         android:inputType="textMultiLine"
         android:textColor="#22BE87"
         android:textColorHint="#22BE87"
-        android:hint="Traitement"
+        android:hint="@string/treatment"
         />
 
     <TextView
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#22BE87"
-        android:text="Type de fiche"
+        android:text="@string/type_of_service"
         android:layout_marginTop="16dp"
         android:textSize="16sp"/>
 
@@ -64,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_green"
-        android:text="Ajouter" />
+        android:text="@string/add" />
     </LinearLayout>
 
 

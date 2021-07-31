@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.sfg.EWellnessSFG.Common.Common;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
@@ -64,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(k);
             }
         });
-        BtnRequest = findViewById(R.id.btnRequst);
+        BtnRequest = findViewById(R.id.btnRequest);
         BtnRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,21 +73,13 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         profile = findViewById(R.id.profile);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent k = new Intent(HomeActivity.this, ProfilePatientActivity.class);
-                startActivity(k);
-            }
+        profile.setOnClickListener(v -> {
+            Intent k = new Intent(HomeActivity.this, ProfilePatientActivity.class);
+            startActivity(k);
         });
 
         Common.CurrentUserid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
-        FirebaseFirestore.getInstance().collection("User").document(Common.CurrentUserid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Common.CurrentUserName = documentSnapshot.getString("name");
-            }
-        });
+        FirebaseFirestore.getInstance().collection("User").document(Common.CurrentUserid).get().addOnSuccessListener(documentSnapshot -> Common.CurrentUserName = documentSnapshot.getString("name"));
 
     }
 }

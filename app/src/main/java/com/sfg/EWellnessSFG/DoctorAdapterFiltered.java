@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sfg.EWellnessSFG.Common.Common;
 import com.sfg.EWellnessSFG.model.Doctor;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -147,6 +146,7 @@ public class DoctorAdapterFiltered extends RecyclerView.Adapter<DoctorAdapterFil
                 return filterResults;
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
                 mTubeListFiltered = (ArrayList<Doctor>) results.values;
@@ -168,7 +168,7 @@ public class DoctorAdapterFiltered extends RecyclerView.Adapter<DoctorAdapterFil
             title= itemView.findViewById(R.id.doctor_view_title);
             specialist =itemView.findViewById(R.id.text_view_description);
             image=itemView.findViewById(R.id.doctor_item_image);
-            appointmentBtn =itemView.findViewById(R.id.appointemenBtn);
+            appointmentBtn =itemView.findViewById(R.id.appointmentBtn);
         }
     }
     private void openPage(Context wf){

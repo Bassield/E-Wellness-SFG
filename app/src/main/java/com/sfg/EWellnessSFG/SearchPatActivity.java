@@ -1,5 +1,6 @@
 package com.sfg.EWellnessSFG;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
@@ -29,8 +30,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import EWellnessSFG.R;
 
 public class SearchPatActivity extends AppCompatActivity {
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference doctorRef = db.collection("Doctor");
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final CollectionReference doctorRef = db.collection("Doctor");
 
     private DoctorAdapterFiltered adapter;
 
@@ -79,7 +80,7 @@ public class SearchPatActivity extends AppCompatActivity {
         inflater.inflate(R.menu.navigation_bar, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search);
 
-        Drawable r= getResources().getDrawable(R.drawable.ic_local_hospital_black_24dp);
+        @SuppressLint("UseCompatLoadingForDrawables") Drawable r= getResources().getDrawable(R.drawable.ic_local_hospital_black_24dp);
         r.setBounds(0, 0, r.getIntrinsicWidth(), r.getIntrinsicHeight());
         SpannableString sb = new SpannableString(" Specialist" );
         ImageSpan imageSpan = new ImageSpan(r, ImageSpan.ALIGN_BOTTOM);

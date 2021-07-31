@@ -4,7 +4,7 @@
     <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search_white"
-        android:title="Search"
+        android:title="@string/search"
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
     <item
@@ -17,35 +17,35 @@
 
             <item
                 android:id="@+id/option_all"
-                android:title="all"
+                android:title="@string/all"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_general"
-                android:title="général"
+                android:title="@string/gp"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_Dentist"
-                android:title="Dentiste"
+                android:title="@string/dentist"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_ENT"
-                android:title="ORL"
+                android:title="@string/ent"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_Ophthalmologist"
-                android:title="Ophtalmologue"
+                android:title="@string/ophthalmologist"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_Pediatrician"
-                android:title="Pédiatre"
+                android:title="@string/pediatrician"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_Radiologist"
-                android:title="Radiologue"
+                android:title="@string/radiologist"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/option_Rheumatologist"
-                android:title="Rhumatologue"
+                android:title="@string/rheumatologist"
                 app:showAsAction="ifRoom" />
 
         </menu>

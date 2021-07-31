@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:background="#EDD9CF"
-    tools:context=".ConsultationFragmentPage">
+    tools:context="com.sfg.EWellnessSFG.ConsultationFragmentPage">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/consultationRecycleView"

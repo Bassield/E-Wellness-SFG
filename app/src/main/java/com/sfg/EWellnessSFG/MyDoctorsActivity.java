@@ -19,8 +19,8 @@ import java.util.Objects;
 import EWellnessSFG.R;
 
 public class MyDoctorsActivity extends AppCompatActivity {
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference myDoctorsRef = db.collection("Patient");
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final CollectionReference myDoctorsRef = db.collection("Patient");
     private MyDoctorsAdapter adapter;
 
     @Override

@@ -14,8 +14,8 @@ public class PatientHelper {
     static FirebaseFirestore db = FirebaseFirestore.getInstance();
     static CollectionReference PatientRef = db.collection("Patient");
 
-    public static void addPatient(String name, String address, String tel){
-        Patient patient = new Patient(name,address,tel, Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail(),"aaa", "aaa");
+    public static void addPatient(String name, String address, String tel, String dateOfBirth){
+        Patient patient = new Patient(name,address,tel, Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail(),dateOfBirth, "added records");
         System.out.println("Create object patient");
         PatientRef.document(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser().getEmail())).set(patient);
     }

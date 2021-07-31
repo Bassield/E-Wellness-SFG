@@ -38,7 +38,7 @@ public class ChatActivity extends AppCompatActivity {
         Button btnEnvoyer = (Button) findViewById(R.id.activity_mentor_chat_send_button);
         setUpRecyclerView();
         btnEnvoyer.setOnClickListener(v -> {
-            Message msg = new Message(envoyer.getText().toString(), Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail());
+            Message msg = new Message(Objects.requireNonNull(envoyer.getText()).toString(), Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail());
             MessageRef1.document().set(msg);
             MessageRef2.document().set(msg);
             envoyer.setText("");

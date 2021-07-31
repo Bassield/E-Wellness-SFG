@@ -19,8 +19,8 @@ import java.util.Objects;
 import EWellnessSFG.R;
 
 public class DoctorAppointmentActivity extends Activity {
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference doctorAppointmentRef = db.collection("Doctor");
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final CollectionReference doctorAppointmentRef = db.collection("Doctor");
     private DoctorAppointmentAdapter adapter;
 
     @Override
@@ -43,7 +43,7 @@ public class DoctorAppointmentActivity extends Activity {
 
         adapter = new DoctorAppointmentAdapter(options);
         //ListMyDoctors
-        RecyclerView recyclerView = findViewById(R.id.DoctorAppointement);
+        RecyclerView recyclerView = findViewById(R.id.DoctorAppointment);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);

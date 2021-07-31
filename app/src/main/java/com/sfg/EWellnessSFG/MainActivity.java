@@ -3,6 +3,7 @@ package com.sfg.EWellnessSFG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -152,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         createBtn.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 emailText.setText("");
@@ -214,54 +216,45 @@ public class MainActivity extends AppCompatActivity {
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("TAG", "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("TAG", "signInWithCredential:failure", task.getException());
-                            Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-
-                        // ..
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("TAG", "signInWithCredential:success");
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        updateUI(user);
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("TAG", "signInWithCredential:failure", task.getException());
+                        Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
+                        updateUI(null);
                     }
+
+                    // ..
                 });
     }
 
     private void updateUI(final FirebaseUser currentUser) {
         if (currentUser != null) {
             try {
-                UsersRef.document(Objects.requireNonNull(currentUser.getEmail())).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if (documentSnapshot.exists()) {
-                            UsersRef.document(currentUser.getEmail()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                                @Override
-                                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                    User user = documentSnapshot.toObject(User.class);
-                                    assert user != null;
-                                    Intent k;
-                                    if (user.getType().equals("Patient")) {
-                                        k = new Intent(MainActivity.this, HomeActivity.class);
-                                    } else {
-                                        k = new Intent(MainActivity.this, DoctorHomeActivity.class);
-                                        //Snackbar.make(findViewById(R.id.main_layout), "Doctor interface entraint de realisation", Snackbar.LENGTH_SHORT).show();
-                                    }
-                                    startActivity(k);
-                                }
-                            });
-
-
-                        } else {
-                            Intent k = new Intent(MainActivity.this, FirstSigningActivity.class);
+                UsersRef.document(Objects.requireNonNull(currentUser.getEmail())).get().addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        UsersRef.document(currentUser.getEmail()).get().addOnSuccessListener(documentSnapshot1 -> {
+                            User user = documentSnapshot1.toObject(User.class);
+                            assert user != null;
+                            Intent k;
+                            if (user.getType().equals("Patient")) {
+                                k = new Intent(MainActivity.this, HomeActivity.class);
+                            } else {
+                                k = new Intent(MainActivity.this, DoctorHomeActivity.class);
+                                //Snackbar.make(findViewById(R.id.main_layout), "Doctor interface realisation", Snackbar.LENGTH_SHORT).show();
+                            }
                             startActivity(k);
-                        }
+                        });
+
+
+                    } else {
+                        Intent k = new Intent(MainActivity.this, FirstSigningActivity.class);
+                        startActivity(k);
                     }
                 });
             } catch (Exception e) {

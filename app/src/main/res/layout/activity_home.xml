@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context="com.sfg.EWellnessSFG.HomeActivity">
 
 
     <Button
@@ -49,7 +49,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnRequst"
+        android:id="@+id/btnRequest"
         android:layout_width="105dp"
         android:layout_height="96dp"
         android:layout_marginTop="81dp"

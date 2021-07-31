@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ProfileDoctorActivity">
+    tools:context="com.sfg.EWellnessSFG.ProfileDoctorActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -24,7 +24,7 @@
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="My Profile"
+            android:text="@string/my_profile"
             android:textColor="@android:color/white"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:layout_gravity="center"
@@ -43,7 +43,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.141"
-        app:srcCompat="@drawable/profile" />
+        app:srcCompat="@drawable/profile"
+        android:contentDescription="@string/todo" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -59,10 +60,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="26dp"
-            android:layout_marginLeft="26dp"
             android:layout_marginTop="114dp"
             app:srcCompat="@drawable/ic_call_black_24dp" />
 
@@ -71,10 +70,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="26dp"
-            android:layout_marginLeft="26dp"
             android:layout_marginTop="157dp"
             app:srcCompat="@drawable/ic_email_black_24dp" />
 
@@ -83,10 +80,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="27dp"
-            android:layout_marginLeft="27dp"
             android:layout_marginTop="208dp"
             app:srcCompat="@drawable/ic_add_location_black_24dp" />
 
@@ -95,40 +90,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:text="Doctor tazi"
+            android:text="@string/doctor_name"
             android:textColor="#000"
             android:textSize="24sp" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/doctor_specialite"
+            android:id="@+id/doctor_specialist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="65dp"
-            android:text="Patient"
+            android:text="@string/patient"
             android:textColor="#B9B9B9"
             android:textSize="16sp" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/doctor_specialite5"
+            android:id="@+id/doctor_specialist5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="26dp"
-            android:layout_marginLeft="26dp"
             android:layout_marginTop="262dp"
-            android:text="About"
+            android:text="@string/about"
             android:textColor="#000"
             android:textSize="16sp" />
 
@@ -137,12 +126,10 @@
             android:layout_width="344dp"
             android:layout_height="93dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="27dp"
-            android:layout_marginLeft="27dp"
             android:layout_marginTop="293dp"
-            android:text="About"
+            android:text="@string/about"
             android:textColor="#B9B9B9"
             android:textSize="16sp" />
 
@@ -151,12 +138,10 @@
             android:layout_width="172dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="74dp"
-            android:layout_marginLeft="74dp"
             android:layout_marginTop="116dp"
-            android:text="+212 (0) 5 37 64 95 15"
+            android:text="@string/_27_0_011_649_5555"
             android:textColor="#B9B9B9"
             android:textSize="16sp" />
 
@@ -165,12 +150,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="75dp"
-            android:layout_marginLeft="75dp"
             android:layout_marginTop="160dp"
-            android:text="dr.yamine@gmail.com"
+            android:text="@string/text_view_email"
             android:textColor="#B9B9B9"
             android:textSize="16sp" />
 
@@ -179,12 +162,10 @@
             android:layout_width="284dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="75dp"
-            android:layout_marginLeft="75dp"
             android:layout_marginTop="204dp"
-            android:text="Dr Yassmine Alaoui Pédiatre, 11 Avenue Al Abtal, Rabat"
+            android:text="@string/address"
             android:textColor="#B9B9B9"
             android:textSize="16sp" />
 

@@ -3,7 +3,6 @@ package com.sfg.EWellnessSFG;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -52,7 +50,7 @@ public class ProfilePatientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile_doctor);
 
         doctorName = findViewById(R.id.doctor_name);
-        MaterialTextView doctorSpe = findViewById(R.id.doctor_specialite);
+        MaterialTextView doctorSpe = findViewById(R.id.doctor_specialist);
         doctorPhone = findViewById(R.id.doctor_phone);
         doctorEmail = findViewById(R.id.doctor_email);
         doctorAddress = findViewById(R.id.doctor_address);

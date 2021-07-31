@@ -81,7 +81,7 @@ public class FirstSigningActivity extends AppCompatActivity {
                 specialist = specialistList.getSelectedItem().toString();
                 UserHelper.addUser(fullName, birtDay, tel, type);
                 if (type.equals("Patient")) {
-                    PatientHelper.addPatient(fullName, "address", tel);
+                    PatientHelper.addPatient(fullName, "address", tel, birtDay);
                     System.out.println("Add patient " + fullName + " to patient collection");
 
                 } else {

@@ -141,7 +141,7 @@ public class DoctorAppointmentAdapter extends FirestoreRecyclerAdapter<Appointme
             patientName = itemView.findViewById(R.id.patient_name);
             approveBtn = itemView.findViewById(R.id.btn_accept);
             cancelBtn = itemView.findViewById(R.id.btn_decline);
-            appointmentType = itemView.findViewById(R.id.appointement_type);
+            appointmentType = itemView.findViewById(R.id.appointment_type);
             patient_image = itemView.findViewById(R.id.patient_image);
         }
     }

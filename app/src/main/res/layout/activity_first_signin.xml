@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_header_selector"
-    tools:context=".FirstSigningActivity">
+    tools:context="com.sfg.EWellnessSFG.FirstSigningActivity">
 
     <EditText
         android:id="@+id/firstSignFullName"

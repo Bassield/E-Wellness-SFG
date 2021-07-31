@@ -17,23 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="49dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
             android:background="@color/colorAccent"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/appointement_type"
+                android:id="@+id/appointment_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:text="Consultation"
+                android:text="@string/consultation"
                 android:textColor="#fff" />
 
             <TextView
@@ -42,10 +40,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="23/06/20 at 9pm"
+                android:text="@string/_23_06_20_at_9pm"
                 android:textColor="#fff" />
         </LinearLayout>
 
@@ -54,16 +51,13 @@
             android:layout_width="110dp"
             android:layout_height="24dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="154dp"
-            android:layout_marginLeft="154dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginBottom="13dp"
             android:background="@drawable/button_success"
-            android:text="Accept"
+            android:text="@string/accept"
             android:textSize="12sp" />
 
         <Button
@@ -71,14 +65,12 @@
             android:layout_width="110dp"
             android:layout_height="24dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="139dp"
-            android:layout_marginLeft="139dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="13dp"
             android:background="@drawable/button_danger"
-            android:text="Decline"
+            android:text="@string/decline"
             android:textColor="#f64747"
             android:textSize="12sp" />
 
@@ -87,13 +79,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="140dp"
-            android:layout_marginLeft="140dp"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="82dp"
-            android:text="Patient name"
+            android:text="@string/patient_name"
             android:textColor="#000"
             android:textSize="14sp" />
 
@@ -102,13 +92,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="140dp"
-            android:layout_marginLeft="140dp"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="56dp"
-            android:text="0652167895"
+            android:text="@string/_0652167895"
             android:textColor="#B9B9B9"
             android:textSize="12sp" />
 
@@ -117,12 +105,12 @@
             android:layout_width="86dp"
             android:layout_height="90dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="18dp"
-            android:layout_marginLeft="18dp"
             android:layout_marginBottom="14dp"
-            app:srcCompat="@drawable/ic_anon_user_48dp" />
+            app:srcCompat="@drawable/ic_anon_user_48dp"
+            android:contentDescription="@string/todo"
+            tools:ignore="ContentDescription" />
 
 
     </RelativeLayout>

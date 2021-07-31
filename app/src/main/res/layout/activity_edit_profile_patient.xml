@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".EditProfilePatientActivity">
+    tools:context="com.sfg.EWellnessSFG.EditProfilePatientActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -22,7 +22,7 @@
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit My Profile"
+            android:text="@string/edit_my_profile"
             android:textColor="@android:color/white"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:layout_gravity="center"
@@ -39,7 +39,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:hint="Enter your name"
+        android:hint="@string/enter_your_name"
         android:textColorHint="#22BE87"
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="#22BE87"
@@ -66,7 +66,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:hint="Enter your phone"
+        android:hint="@string/enter_your_phone"
         android:textColorHint="#22BE87"
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="#22BE87"
@@ -94,7 +94,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:hint="Enter your address"
+        android:hint="@string/enter_your_address"
         android:textColorHint="#22BE87"
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="#22BE87"
@@ -123,7 +123,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.172" />
+        app:layout_constraintVertical_bias="0.172"
+        android:contentDescription="@string/todo" />
 
     <Button
         android:id="@+id/update"
@@ -133,7 +134,7 @@
         android:layout_marginLeft="42dp"
         android:layout_marginEnd="42dp"
         android:layout_marginRight="42dp"
-        android:text="UPDATE PROFILE"
+        android:text="@string/update_profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -149,7 +150,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_profile"
         app:layout_constraintVertical_bias="0.17"
-        app:srcCompat="@drawable/ic_camera_alt_black_24dp" />
+        app:srcCompat="@drawable/ic_camera_alt_black_24dp"
+        android:contentDescription="@string/todo"
+        tools:ignore="ContentDescription" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
